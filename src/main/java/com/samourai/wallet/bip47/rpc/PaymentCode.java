@@ -258,7 +258,7 @@ public class PaymentCode {
   					return true;
   				}
           else{
-  					throw new AddressFormatException("invalid format: " + strPaymentCode);
+            return false;
   				}
   			}
   		}
