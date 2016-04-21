@@ -176,6 +176,14 @@ public class PaymentCode {
     }
 
     private String makeV1() {
+        return make(0x01);
+    }
+
+    private String makeV2() {
+      return make(0x02);
+    }
+
+    private String make(int type) {
 
         String ret = null;
 
@@ -186,8 +194,8 @@ public class PaymentCode {
             payload[i] = (byte)0x00;
         }
 
-        // byte 0: type. required value: 0x01
-        payload[0] = (byte)0x01;
+        // byte 0: type.
+        payload[0] = (byte)type;
         // byte 1: features bit field. All bits must be zero except where specified elsewhere in this specification
         //      bit 0: Bitmessage notification
         //      bits 1-7: reserved
